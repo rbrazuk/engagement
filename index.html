@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Engagement Tracking</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -49,7 +49,7 @@
       <div class="row header">
           <div class="col-sm-10">
               <h2 class="header-title">Notification API</h2>
-              <p ng-cloak>Engagement tracking for server {{selectedServer.serverId}} (v{{selectedServer.trackingVersion}}) | Showing {{notifications.length}} results</p>
+              <p ng-cloak>Engagement tracking for {{selectedServer.environment}} server {{selectedServer.serverId}} (v{{selectedServer.trackingVersion}}) | Showing {{notifications.length}} results</p>
           </div>
           <div class="col-sm-2">
               <div class="form-group">
@@ -68,7 +68,6 @@
       <table class="table">
           <thead>
               <tr>
-                  <th><a href="">Server ID </a></th>
                   <th>
                       <a ng-click="sortByColumn('unixTime')" href="">DateTime </a>
                       <a href=""><i class="fas fa-filter"></i></a>
@@ -86,8 +85,7 @@
               </tr>
           </thead>
           <tbody>
-                 <tr ng-repeat="item in notifications | filter: dateRange(unixTime) | orderBy: sortBy">
-                  <td>{{item.serverId}}</td>   
+                 <tr ng-repeat="item in notifications | filter: dateRange(unixTime) | orderBy: sortBy"> 
                   <td>{{item.dateTime}}</td>
                   <td>{{item.address}}</td>
                   <td>{{item.trackingType | trackingType}}</td>
