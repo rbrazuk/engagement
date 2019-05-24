@@ -57,7 +57,7 @@
                   <select 
                       class="custom-select" 
                       name="serverSelect" 
-                      ng-options="server.serverId for server in servers track by server._id"
+                      ng-options="server.environment + ' ' + server.serverId for server in servers track by server._id"
                       ng-model="selectedServer"
                       ng-change="selectServer(selectedServer)">                      
                   </select>
